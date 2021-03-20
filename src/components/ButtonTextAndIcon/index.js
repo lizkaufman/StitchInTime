@@ -8,7 +8,7 @@ const ButtonTextAndIcon = ({
   iconName,
   backgroundColor = "#009688",
   textColor = "#fff",
-  textSize = 20,
+  textSize = 24,
   isDisabled = false,
 }) => {
   return (
