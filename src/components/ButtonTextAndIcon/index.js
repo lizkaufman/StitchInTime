@@ -1,9 +1,11 @@
 import React from "react";
 import { StyleSheet, TouchableOpacity, Text } from "react-native";
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 
-const ButtonWithText = ({
+const ButtonTextAndIcon = ({
   title,
   handlePress,
+  iconName,
   backgroundColor = "#009688",
   textColor = "#fff",
   textSize = 20,
@@ -20,6 +22,7 @@ const ButtonWithText = ({
       disabled={isDisabled ? true : false}
       onPress={handlePress}
     >
+      <FontAwesomeIcon color={textColor} size={textSize} icon={iconName} />
       <Text
         style={[
           styles.buttonTextStyle,
@@ -39,13 +42,14 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     paddingHorizontal: 20,
     margin: 15,
+    flexDirection: "row",
   },
   buttonTextStyle: {
-    // fontSize: 20,
     fontWeight: "bold",
     alignSelf: "center",
     textAlign: "center",
+    paddingLeft: 12,
   },
 });
 
-export default ButtonWithText;
+export default ButtonTextAndIcon;

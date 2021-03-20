@@ -4,11 +4,17 @@ import { StyleSheet, Text, SafeAreaView } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faPlay } from "@fortawesome/free-solid-svg-icons";
+
 import HomeScreen from "./src/screens/HomeScreen.js";
 import CounterScreen from "./src/screens/CounterScreen.js";
 
+//Adds specific Font Awesome icons to available library:
+library.add(faPlay);
+
 const Stack = createStackNavigator();
-//Note: navigation prop passed down automatically by Stack.Navigator to all Stack.Screen components.
+//Note: The navigation prop is passed down automatically by Stack.Navigator to all Stack.Screen components.
 
 export default function App() {
   return (
