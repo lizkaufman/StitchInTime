@@ -1,13 +1,13 @@
 import React from "react";
 import { StyleSheet, Text, SafeAreaView, Button } from "react-native";
 
-import ButtonOnlyText from "../components/ButtonOnlyText";
+import ButtonTextAndIcon from "../components/ButtonTextAndIcon";
 
 function CounterScreen({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       <Text>Hi from the counter screen!</Text>
-      <ButtonOnlyText
+      <ButtonTextAndIcon
         title="Home"
         handlePress={() => navigation.navigate("Home")}
       />

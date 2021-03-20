@@ -5,13 +5,33 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faPlay, faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPlay,
+  faPlus,
+  faMinus,
+  faSmileBeam,
+  faSmile,
+  faBook,
+  faBookReader,
+  faBookmark,
+  faBookOpen,
+} from "@fortawesome/free-solid-svg-icons";
 
 import HomeScreen from "./src/screens/HomeScreen.js";
 import CounterScreen from "./src/screens/CounterScreen.js";
 
 //Adds specific Font Awesome icons to available library:
-library.add(faPlay, faPlus, faMinus);
+library.add(
+  faPlay,
+  faPlus,
+  faMinus,
+  faSmileBeam,
+  faSmile,
+  faBook,
+  faBookReader,
+  faBookmark,
+  faBookOpen
+);
 //TODO: Document icons used in readme!!
 
 const Stack = createStackNavigator();
