@@ -1,16 +1,18 @@
 import React from "react";
-import { StyleSheet, Text, SafeAreaView, Button } from "react-native";
+import { StyleSheet, Text, SafeAreaView } from "react-native";
 
 import ButtonTextAndIcon from "../components/ButtonTextAndIcon";
+import CounterGoalForm from "../components/CounterGoalForm";
 
 function CounterScreen({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
-      <Text>Hi from the counter screen!</Text>
+      {/* <Text>Hi from the counter screen!</Text>
       <ButtonTextAndIcon
         title="Home"
         handlePress={() => navigation.navigate("Home")}
-      />
+      /> */}
+      <CounterGoalForm />
     </SafeAreaView>
   );
 }

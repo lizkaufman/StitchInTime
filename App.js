@@ -28,7 +28,6 @@ library.add(
   faSmileBeam,
   faSmile,
   faBook,
-  faBookReader,
   faBookmark,
   faBookOpen
 );
