@@ -8,6 +8,7 @@ import HomeScreen from "./src/screens/HomeScreen.js";
 import CounterScreen from "./src/screens/CounterScreen.js";
 
 const Stack = createStackNavigator();
+//Note: navigation prop passed down automatically by Stack.Navigator to all Stack.Screen components.
 
 export default function App() {
   return (

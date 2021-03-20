@@ -1,13 +1,15 @@
 import React from "react";
 import { StyleSheet, Text, SafeAreaView, Button } from "react-native";
 
+import ButtonWithText from "../components/ButtonWithText";
+
 function HomeScreen({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       <Text>Hi from the home screen!</Text>
-      <Button
+      <ButtonWithText
         title="Start tracking!"
-        onPress={() => navigation.push("Counter")}
+        handlePress={() => navigation.push("Counter")}
       />
     </SafeAreaView>
   );
