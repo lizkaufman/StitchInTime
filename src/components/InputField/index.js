@@ -9,14 +9,16 @@ const Input = ({
   handleChange,
   placeholder = "",
   returnKeyType = "done",
+  defaultValue = "",
 }) => {
   return (
     <TextInput
       style={[styles.input, isNumeric ? { width: 60 } : { width: width }]}
       keyboardType={isNumeric ? "number-pad" : "default"}
       placeholder={placeholder}
-      onChange={handleChange}
+      onChangeText={handleChange}
       returnKeyType={returnKeyType}
+      defaultValue={defaultValue}
     />
   );
 };

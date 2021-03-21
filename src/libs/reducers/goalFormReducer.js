@@ -2,7 +2,7 @@ import * as actionTypes from "../actionTypes";
 
 export const initialGoalFormState = {
   trackingType: "rows",
-  goalTarget: 1,
+  goalTarget: 0,
 };
 
 export function goalFormReducer(state, action) {

@@ -1,8 +1,10 @@
-import React, { useReducer } from "react";
-import { StyleSheet, Text, SafeAreaView } from "react-native";
+import React, { useReducer, useState } from "react";
+import { StyleSheet, SafeAreaView } from "react-native";
 
-import ButtonTextAndIcon from "../components/ButtonTextAndIcon";
+import { colors } from "../libs/colorTheme";
+
 import CounterGoalForm from "../components/CounterGoalForm";
+import GoalTrackerContainer from "../components/GoalTrackerContainer";
 
 import {
   initialGoalFormState,
@@ -15,18 +17,29 @@ function CounterScreen({ navigation }) {
     goalFormReducer,
     initialGoalFormState
   );
+  const [goalFormShowing, setGoalFormShowing] = useState(true);
+
+  function hideGoalForm() {
+    setGoalFormShowing(false);
+  }
+  function showGoalForm() {
+    setGoalFormShowing(true);
+  }
 
   return (
     <SafeAreaView style={styles.container}>
-      {/* <Text>Hi from the counter screen!</Text>
-      <ButtonTextAndIcon
-        title="Home"
-        handlePress={() => navigation.navigate("Home")}
-      /> */}
-      <CounterGoalForm
-        goalFormState={goalFormState}
-        goalFormDispatch={goalFormDispatch}
-      />
+      {goalFormShowing ? (
+        <CounterGoalForm
+          goalFormState={goalFormState}
+          goalFormDispatch={goalFormDispatch}
+          hideGoalForm={hideGoalForm}
+        />
+      ) : (
+        <GoalTrackerContainer
+          goalFormState={goalFormState}
+          showGoalForm={showGoalForm}
+        />
+      )}
     </SafeAreaView>
   );
 }
@@ -34,7 +47,7 @@ function CounterScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: colors.white,
     alignItems: "center",
     justifyContent: "center",
   },
