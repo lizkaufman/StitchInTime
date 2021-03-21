@@ -4,6 +4,8 @@ import { useDimensions } from "@react-native-community/hooks";
 
 import ButtonTextAndIcon from "../components/ButtonTextAndIcon";
 
+import { colors } from "../libs/colorTheme";
+
 function HomeScreen({ navigation }) {
   const { width, height } = useDimensions().window;
 
@@ -61,7 +63,7 @@ function HomeScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: colors.white,
     alignItems: "center",
     justifyContent: "center",
   },

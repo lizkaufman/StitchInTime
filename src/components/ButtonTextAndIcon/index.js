@@ -3,12 +3,14 @@ import { StyleSheet, TouchableOpacity, Text } from "react-native";
 import { useDimensions } from "@react-native-community/hooks";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 
+import { colors } from "../../libs/colorTheme";
+
 const ButtonTextAndIcon = ({
   title,
   handlePress,
   iconName,
-  backgroundColor = "#009688",
-  textColor = "#fff",
+  backgroundColor = colors.teal,
+  textColor = colors.white,
   textSize = 20,
   isDisabled = false,
   fixedWidth = false,
@@ -22,7 +24,7 @@ const ButtonTextAndIcon = ({
         styles.buttonStyle,
         !isDisabled
           ? { backgroundColor: backgroundColor }
-          : { backgroundColor: "#d8d8d8" },
+          : { backgroundColor: colors.lightGrey },
         fixedWidth && { width: width * fixedWidthProportion },
         // If fixedWith is true, set the width of the button to the width of the device * fixedWidthProportion (ex: 80% of width if fixedWidthProportion===0.8).
       ]}

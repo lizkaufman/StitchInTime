@@ -8,7 +8,7 @@ import {
   initialGoalFormState,
   goalFormReducer,
 } from "../libs/reducers/goalFormReducer.js";
-import * as actionTypes from "../../libs/actionTypes";
+import * as actionTypes from "../libs/actionTypes";
 
 function CounterScreen({ navigation }) {
   const [goalFormState, goalFormDispatch] = useReducer(

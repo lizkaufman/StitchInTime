@@ -1,5 +1,7 @@
 import React from "react";
-import { StyleSheet, Text, View, TextInput } from "react-native";
+import { StyleSheet, TextInput } from "react-native";
+
+import { colors } from "../../libs/colorTheme";
 
 const Input = ({
   width = 150,
@@ -27,7 +29,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     fontSize: 20,
     textAlign: "center",
-    backgroundColor: "#fff",
+    backgroundColor: colors.white,
   },
 });
 

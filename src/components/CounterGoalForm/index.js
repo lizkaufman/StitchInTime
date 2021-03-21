@@ -4,6 +4,9 @@ import { StyleSheet, Text, View } from "react-native";
 import InputField from "../InputField";
 import ButtonTextAndIcon from "../ButtonTextAndIcon";
 
+import { colors } from "../../libs/colorTheme";
+import * as actionTypes from "../../libs/actionTypes";
+
 const CounterGoalForm = ({ goalFormState, goalFormDispatch }) => {
   const [rowsButtonHighlight, setRowsButtonHighlight] = useState(true);
 
@@ -24,14 +27,14 @@ const CounterGoalForm = ({ goalFormState, goalFormDispatch }) => {
             handlePress={() =>
               goalFormDispatch({ type: actionTypes.CHANGE_GOAL_TYPE_ROWS })
             }
-            backgroundColor={rowsButtonHighlight && "#503C5C"}
+            backgroundColor={rowsButtonHighlight ? colors.purple : colors.teal}
           />
           <ButtonTextAndIcon
             title="stitches"
             handlePress={() =>
               goalFormDispatch({ type: actionTypes.CHANGE_GOAL_TYPE_STITCHES })
             }
-            backgroundColor={!rowsButtonHighlight && "#503C5C"}
+            backgroundColor={!rowsButtonHighlight ? colors.purple : colors.teal}
           />
         </View>
         <Text style={styles.labelText}>Target:</Text>
@@ -46,6 +49,10 @@ const CounterGoalForm = ({ goalFormState, goalFormDispatch }) => {
         />
       </View>
       <ButtonTextAndIcon title="Get stitching!" />
+      {/* FIXME: Text element below for testing. Delete when it proves the form works! */}
+      <Text>
+        {goalFormState.target} {goalFormState.trackingType}
+      </Text>
     </View>
   );
 };
@@ -54,7 +61,7 @@ const styles = StyleSheet.create({
   formContainer: {
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#BEBEBE",
+    backgroundColor: colors.lightTealyGrey,
     paddingHorizontal: 40,
     paddingTop: 28,
     paddingBottom: 40,
@@ -75,6 +82,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
     marginBottom: 12,
     textAlign: "center",
+    fontWeight: "bold",
   },
   choiceButtons: {
     flexDirection: "row",
