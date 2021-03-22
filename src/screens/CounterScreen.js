@@ -1,7 +1,7 @@
 import React, { useReducer, useState } from "react";
 import { StyleSheet, SafeAreaView } from "react-native";
 
-import { colors } from "../libs/colorTheme";
+import { colors } from "../libs/stylingVars";
 
 import CounterGoalForm from "../components/CounterGoalForm";
 import GoalTrackerContainer from "../components/GoalTrackerContainer";
@@ -10,13 +10,21 @@ import {
   initialGoalFormState,
   goalFormReducer,
 } from "../libs/reducers/goalFormReducer.js";
-import * as actionTypes from "../libs/actionTypes";
+import {
+  initialCounterState,
+  counterReducer,
+} from "../libs/reducers/counterReducer";
 
 function CounterScreen({ navigation }) {
   const [goalFormState, goalFormDispatch] = useReducer(
     goalFormReducer,
     initialGoalFormState
   );
+  const [counterState, counterDispatch] = useReducer(
+    counterReducer,
+    initialCounterState
+  );
+
   const [goalFormShowing, setGoalFormShowing] = useState(true);
 
   function hideGoalForm() {
@@ -38,6 +46,8 @@ function CounterScreen({ navigation }) {
         <GoalTrackerContainer
           goalFormState={goalFormState}
           showGoalForm={showGoalForm}
+          counterDispatch={counterDispatch}
+          counterState={counterState}
         />
       )}
     </SafeAreaView>

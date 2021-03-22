@@ -4,7 +4,7 @@ import { useDimensions } from "@react-native-community/hooks";
 
 import ButtonTextAndIcon from "../components/ButtonTextAndIcon";
 
-import { colors } from "../libs/colorTheme";
+import { colors } from "../libs/stylingVars";
 
 function HomeScreen({ navigation }) {
   const { width, height } = useDimensions().window;

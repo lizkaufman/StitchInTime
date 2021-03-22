@@ -5,7 +5,7 @@ import { useDimensions } from "@react-native-community/hooks";
 import InputField from "../InputField";
 import ButtonTextAndIcon from "../ButtonTextAndIcon";
 
-import { colors } from "../../libs/colorTheme";
+import { colors } from "../../libs/stylingVars";
 import * as actionTypes from "../../libs/actionTypes";
 
 const CounterGoalForm = ({ goalFormState, goalFormDispatch, hideGoalForm }) => {

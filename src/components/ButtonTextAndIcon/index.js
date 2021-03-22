@@ -3,7 +3,7 @@ import { StyleSheet, TouchableOpacity, Text } from "react-native";
 import { useDimensions } from "@react-native-community/hooks";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 
-import { colors } from "../../libs/colorTheme";
+import { colors } from "../../libs/stylingVars";
 
 const ButtonTextAndIcon = ({
   title,

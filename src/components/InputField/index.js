@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, TextInput } from "react-native";
 
-import { colors } from "../../libs/colorTheme";
+import { colors } from "../../libs/stylingVars";
 
 const Input = ({
   width = 150,
@@ -10,10 +10,15 @@ const Input = ({
   placeholder = "",
   returnKeyType = "done",
   defaultValue = "",
+  textSize = 20,
 }) => {
   return (
     <TextInput
-      style={[styles.input, isNumeric ? { width: 60 } : { width: width }]}
+      style={[
+        styles.input,
+        isNumeric ? { width: 60 } : { width: width },
+        { fontSize: textSize },
+      ]}
       keyboardType={isNumeric ? "number-pad" : "default"}
       placeholder={placeholder}
       onChangeText={handleChange}
@@ -29,7 +34,6 @@ const styles = StyleSheet.create({
     borderWidth: 1.5,
     padding: 12,
     borderRadius: 10,
-    fontSize: 20,
     textAlign: "center",
     backgroundColor: colors.white,
   },

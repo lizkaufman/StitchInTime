@@ -15,6 +15,7 @@ import {
   faBookReader,
   faBookmark,
   faBookOpen,
+  faEraser,
 } from "@fortawesome/free-solid-svg-icons";
 
 import HomeScreen from "./src/screens/HomeScreen.js";
@@ -29,7 +30,9 @@ library.add(
   faSmile,
   faBook,
   faBookmark,
-  faBookOpen
+  faBookReader,
+  faBookOpen,
+  faEraser
 );
 //TODO: Document icons used in readme!!
 
