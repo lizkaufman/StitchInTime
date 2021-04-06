@@ -8,14 +8,14 @@ import ButtonTextAndIcon from "../ButtonTextAndIcon";
 import { colors } from "../../libs/stylingVars";
 import * as actionTypes from "../../libs/actionTypes";
 
-const CounterGoalForm = ({ goalFormState, goalFormDispatch, hideGoalForm }) => {
+const CounterGoalForm = ({ goalState, goalDispatch, hideGoalForm }) => {
   const [rowsButtonHighlight, setRowsButtonHighlight] = useState(true);
 
   useEffect(() => {
-    goalFormState.trackingType === "rows"
+    goalState.trackingType === "rows"
       ? setRowsButtonHighlight(true)
       : setRowsButtonHighlight(false);
-  }, [goalFormState]);
+  }, [goalState]);
 
   const { width, height } = useDimensions().window;
 
@@ -28,14 +28,14 @@ const CounterGoalForm = ({ goalFormState, goalFormDispatch, hideGoalForm }) => {
           <ButtonTextAndIcon
             title="rows"
             handlePress={() =>
-              goalFormDispatch({ type: actionTypes.CHANGE_GOAL_TYPE_ROWS })
+              goalDispatch({ type: actionTypes.CHANGE_GOAL_TYPE_ROWS })
             }
             backgroundColor={rowsButtonHighlight ? colors.purple : colors.teal}
           />
           <ButtonTextAndIcon
             title="stitches"
             handlePress={() =>
-              goalFormDispatch({ type: actionTypes.CHANGE_GOAL_TYPE_STITCHES })
+              goalDispatch({ type: actionTypes.CHANGE_GOAL_TYPE_STITCHES })
             }
             backgroundColor={!rowsButtonHighlight ? colors.purple : colors.teal}
           />
@@ -45,18 +45,17 @@ const CounterGoalForm = ({ goalFormState, goalFormDispatch, hideGoalForm }) => {
           isNumeric
           handleChange={(userInput) => {
             userInput &&
-              goalFormDispatch({
+              goalDispatch({
                 type: actionTypes.CHANGE_GOAL_TARGET,
                 payload: userInput,
               });
           }}
-          defaultValue={goalFormState.goalTarget.toString()}
+          defaultValue={goalState.goalTarget.toString()}
         />
       </View>
-      {goalFormState.goalTarget ? (
+      {goalState.goalTarget ? (
         <Text style={styles.goalText}>
-          Your goal is to do {goalFormState.goalTarget}{" "}
-          {goalFormState.trackingType}.
+          Your goal is to do {goalState.goalTarget} {goalState.trackingType}.
         </Text>
       ) : (
         <Text style={styles.goalText}>Enter a target above.</Text>

@@ -6,24 +6,20 @@ import { colors } from "../../libs/stylingVars";
 
 import ButtonTextAndIcon from "../ButtonTextAndIcon";
 import Counter from "../Counter";
+import ProgressDisplay from "../ProgressDisplay";
 
-const GoalTrackerContainer = ({
-  goalFormState,
-  showGoalForm,
-  counterDispatch,
-  counterState,
-}) => {
+const GoalTrackerContainer = ({ goalState, showGoalForm, goalDispatch }) => {
   const { width, height } = useDimensions().window;
 
   return (
     <SafeAreaView style={[styles.trackerContainer, { width: width * 0.8 }]}>
-      <Text>
-        Your goal is to do {goalFormState.goalTarget}{" "}
-        {goalFormState.trackingType}.
-      </Text>
-      <Text>Current count: {counterState.currentCount}</Text>
+      <ProgressDisplay
+        currentCount={goalState.currentCount}
+        goalTarget={goalState.goalTarget}
+        trackingType={goalState.trackingType}
+      />
 
-      <Counter counterDispatch={counterDispatch} counterState={counterState} />
+      <Counter goalDispatch={goalDispatch} goalState={goalState} />
 
       <ButtonTextAndIcon title="Change your goal" handlePress={showGoalForm} />
       <ButtonTextAndIcon

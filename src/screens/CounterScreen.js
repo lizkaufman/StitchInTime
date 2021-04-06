@@ -6,24 +6,10 @@ import { colors } from "../libs/stylingVars";
 import CounterGoalForm from "../components/CounterGoalForm";
 import GoalTrackerContainer from "../components/GoalTrackerContainer";
 
-import {
-  initialGoalFormState,
-  goalFormReducer,
-} from "../libs/reducers/goalFormReducer.js";
-import {
-  initialCounterState,
-  counterReducer,
-} from "../libs/reducers/counterReducer";
+import { initialGoalState, goalReducer } from "../libs/reducers/goalReducer.js";
 
 function CounterScreen({ navigation }) {
-  const [goalFormState, goalFormDispatch] = useReducer(
-    goalFormReducer,
-    initialGoalFormState
-  );
-  const [counterState, counterDispatch] = useReducer(
-    counterReducer,
-    initialCounterState
-  );
+  const [goalState, goalDispatch] = useReducer(goalReducer, initialGoalState);
 
   const [goalFormShowing, setGoalFormShowing] = useState(true);
 
@@ -38,16 +24,16 @@ function CounterScreen({ navigation }) {
     <SafeAreaView style={styles.container}>
       {goalFormShowing ? (
         <CounterGoalForm
-          goalFormState={goalFormState}
-          goalFormDispatch={goalFormDispatch}
+          goalState={goalState}
+          goalDispatch={goalDispatch}
           hideGoalForm={hideGoalForm}
         />
       ) : (
         <GoalTrackerContainer
-          goalFormState={goalFormState}
+          goalState={goalState}
           showGoalForm={showGoalForm}
-          counterDispatch={counterDispatch}
-          counterState={counterState}
+          goalDispatch={goalDispatch}
+          goalState={goalState}
         />
       )}
     </SafeAreaView>

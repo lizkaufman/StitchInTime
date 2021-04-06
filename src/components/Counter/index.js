@@ -8,7 +8,7 @@ import * as actionTypes from "../../libs/actionTypes";
 import ButtonTextAndIcon from "../ButtonTextAndIcon";
 import InputField from "../InputField";
 
-const Counter = ({ counterDispatch, counterState }) => {
+const Counter = ({ goalDispatch, goalState }) => {
   const { width, height } = useDimensions().window;
 
   return (
@@ -16,9 +16,9 @@ const Counter = ({ counterDispatch, counterState }) => {
       <InputField
         isNumeric
         textSize={24}
-        defaultValue={counterState.counterIncrement.toString()}
+        defaultValue={goalState.counterIncrement.toString()}
         handleChange={(userInput) => {
-          counterDispatch({
+          goalDispatch({
             type: actionTypes.CHANGE_COUNTER_INCREMENT,
             payload: userInput,
           });
@@ -29,7 +29,7 @@ const Counter = ({ counterDispatch, counterState }) => {
           textSize={24}
           iconName="plus"
           handlePress={() => {
-            counterDispatch({
+            goalDispatch({
               type: actionTypes.ADD_TO_COUNTER,
             });
           }}
@@ -38,7 +38,7 @@ const Counter = ({ counterDispatch, counterState }) => {
           textSize={24}
           iconName="minus"
           handlePress={() => {
-            counterDispatch({
+            goalDispatch({
               type: actionTypes.SUBTRACT_FROM_COUNTER,
             });
           }}
@@ -59,7 +59,7 @@ const Counter = ({ counterDispatch, counterState }) => {
                 {
                   text: `Yes, reset my progress to 0.`,
                   onPress: () => {
-                    counterDispatch({
+                    goalDispatch({
                       type: actionTypes.RESET_CURRENT_COUNT,
                     });
                   },
@@ -80,8 +80,9 @@ const styles = StyleSheet.create({
     backgroundColor: colors.lightTealyGrey,
     paddingHorizontal: 40,
     paddingTop: 28,
-    paddingBottom: 40,
+    paddingBottom: 35,
     borderRadius: 10,
+    marginBottom: 15,
   },
   buttonContainer: {
     flexDirection: "row",
