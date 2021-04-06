@@ -16,10 +16,22 @@ export function goalReducer(state, action) {
     case actionTypes.CHANGE_GOAL_TYPE_STITCHES:
       return { ...state, trackingType: "stitches" };
     case actionTypes.CHANGE_GOAL_TARGET:
+      if (typeof action.payload !== "number") {
+        return state;
+      }
+      if (action.payload <= 0) {
+        return { ...state, goalTarget: 0 };
+      }
       return { ...state, goalTarget: action.payload };
     case actionTypes.RESET_GOAL_FORM:
       return initialGoalState;
     case actionTypes.CHANGE_COUNTER_INCREMENT:
+      if (typeof action.payload !== "number") {
+        return state;
+      }
+      if (action.payload <= 0) {
+        return { ...state, counterIncrement: 1 };
+      }
       return { ...state, counterIncrement: action.payload };
     case actionTypes.ADD_TO_COUNTER:
       return {
