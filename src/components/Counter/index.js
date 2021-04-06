@@ -41,7 +41,7 @@ const Counter = ({ goalDispatch, goalState }) => {
             goalDispatch({
               type: actionTypes.ADD_TO_COUNTER,
             });
-            // updateGoalCompletionStats();
+            updateGoalCompletionStats();
           }}
         />
         <ButtonTextAndIcon
@@ -51,7 +51,7 @@ const Counter = ({ goalDispatch, goalState }) => {
             goalDispatch({
               type: actionTypes.SUBTRACT_FROM_COUNTER,
             });
-            // updateGoalCompletionStats();
+            updateGoalCompletionStats();
           }}
         />
         <ButtonTextAndIcon
