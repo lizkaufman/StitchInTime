@@ -11,6 +11,11 @@ import InputField from "../InputField";
 const Counter = ({ goalDispatch, goalState }) => {
   const { width, height } = useDimensions().window;
 
+  function updateGoalCompletionStats() {
+    goalDispatch({ type: actionTypes.CALCULATE_PERCENT_COMPLETE });
+    goalDispatch({ type: actionTypes.CALCULATE_HOW_MANY_LEFT });
+  }
+
   return (
     <View style={[styles.counter, { width: width * 0.8 }]}>
       <InputField
@@ -32,6 +37,7 @@ const Counter = ({ goalDispatch, goalState }) => {
             goalDispatch({
               type: actionTypes.ADD_TO_COUNTER,
             });
+            updateGoalCompletionStats();
           }}
         />
         <ButtonTextAndIcon
@@ -41,6 +47,7 @@ const Counter = ({ goalDispatch, goalState }) => {
             goalDispatch({
               type: actionTypes.SUBTRACT_FROM_COUNTER,
             });
+            updateGoalCompletionStats();
           }}
         />
         <ButtonTextAndIcon
@@ -62,6 +69,7 @@ const Counter = ({ goalDispatch, goalState }) => {
                     goalDispatch({
                       type: actionTypes.RESET_CURRENT_COUNT,
                     });
+                    updateGoalCompletionStats();
                   },
                 },
               ]

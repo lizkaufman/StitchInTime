@@ -4,7 +4,13 @@ import { useDimensions } from "@react-native-community/hooks";
 
 import { colors } from "../../libs/stylingVars";
 
-const ProgressDisplay = ({ currentCount, goalTarget, trackingType }) => {
+const ProgressDisplay = ({
+  currentCount,
+  goalTarget,
+  trackingType,
+  percentComplete,
+  leftToDo,
+}) => {
   const { width, height } = useDimensions().window;
 
   return (
@@ -12,9 +18,9 @@ const ProgressDisplay = ({ currentCount, goalTarget, trackingType }) => {
       <Text>
         {currentCount} of {goalTarget} {trackingType} completed
       </Text>
-      <Text>{(currentCount / goalTarget) * 100}%</Text>
-      {goalTarget - currentCount ? (
-        <Text>Just {goalTarget - currentCount} more to go!</Text>
+      <Text>{percentComplete}%</Text>
+      {leftToDo ? (
+        <Text>Just {leftToDo} more to go!</Text>
       ) : (
         <Text>You met your goal!</Text>
       )}

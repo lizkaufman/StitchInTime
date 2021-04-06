@@ -17,6 +17,8 @@ const GoalTrackerContainer = ({ goalState, showGoalForm, goalDispatch }) => {
         currentCount={goalState.currentCount}
         goalTarget={goalState.goalTarget}
         trackingType={goalState.trackingType}
+        percentComplete={goalState.percentComplete}
+        leftToDo={goalState.leftToDo}
       />
 
       <Counter goalDispatch={goalDispatch} goalState={goalState} />
