@@ -40,11 +40,14 @@ export function goalReducer(state, action) {
     case actionTypes.RESET_CURRENT_COUNT:
       return { ...state, currentCount: initialCounterState.currentCount };
     case actionTypes.CALCULATE_HOW_MANY_LEFT:
+      if (state.goalTarget - state.currentCount <= 0) {
+        return { ...state, leftToDo: 0 };
+      }
       return { ...state, leftToDo: state.goalTarget - state.currentCount };
     case actionTypes.CALCULATE_PERCENT_COMPLETE:
       const updatedPercentComplete =
         (state.currentCount / state.goalTarget) * 100;
-      return { ...state, percentComplete: updatedPercentComplete.toFixed(1) };
+      return { ...state, percentComplete: updatedPercentComplete.toFixed(0) };
     default:
       return state;
   }

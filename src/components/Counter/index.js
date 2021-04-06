@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { StyleSheet, Text, View, Alert } from "react-native";
 import { useDimensions } from "@react-native-community/hooks";
 
@@ -10,6 +10,10 @@ import InputField from "../InputField";
 
 const Counter = ({ goalDispatch, goalState }) => {
   const { width, height } = useDimensions().window;
+
+  useEffect(() => {
+    updateGoalCompletionStats();
+  }, []);
 
   function updateGoalCompletionStats() {
     goalDispatch({ type: actionTypes.CALCULATE_PERCENT_COMPLETE });
@@ -37,7 +41,7 @@ const Counter = ({ goalDispatch, goalState }) => {
             goalDispatch({
               type: actionTypes.ADD_TO_COUNTER,
             });
-            updateGoalCompletionStats();
+            // updateGoalCompletionStats();
           }}
         />
         <ButtonTextAndIcon
@@ -47,7 +51,7 @@ const Counter = ({ goalDispatch, goalState }) => {
             goalDispatch({
               type: actionTypes.SUBTRACT_FROM_COUNTER,
             });
-            updateGoalCompletionStats();
+            // updateGoalCompletionStats();
           }}
         />
         <ButtonTextAndIcon
