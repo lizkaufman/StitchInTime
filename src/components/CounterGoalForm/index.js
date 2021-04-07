@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Alert } from "react-native";
 import { useDimensions } from "@react-native-community/hooks";
 
 import InputField from "../InputField";
@@ -60,7 +60,14 @@ const CounterGoalForm = ({ goalState, goalDispatch, hideGoalForm }) => {
       ) : (
         <Text style={styles.goalText}>Enter a target above.</Text>
       )}
-      <ButtonTextAndIcon title="Get stitching!" handlePress={hideGoalForm} />
+      <ButtonTextAndIcon
+        title="Get stitching!"
+        handlePress={() => {
+          goalState.goalTarget
+            ? hideGoalForm()
+            : Alert.alert("Your target can't be 0!", "Please input a target.");
+        }}
+      />
     </View>
   );
 };
