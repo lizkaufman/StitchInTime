@@ -29,7 +29,7 @@ const Counter = ({ goalDispatch, goalState }) => {
         handleChange={(userInput) => {
           goalDispatch({
             type: actionTypes.CHANGE_COUNTER_INCREMENT,
-            payload: userInput,
+            payload: Number(userInput),
           });
         }}
       />

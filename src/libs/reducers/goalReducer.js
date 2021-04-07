@@ -61,7 +61,7 @@ export function goalReducer(state, action) {
         (state.currentCount / state.goalTarget) * 100;
       return {
         ...state,
-        percentComplete: Number(updatedPercentComplete.toFixed(0)),
+        percentComplete: updatedPercentComplete.toFixed(0),
       };
     default:
       return state;

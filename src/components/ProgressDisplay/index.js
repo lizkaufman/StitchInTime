@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Animated, StyleSheet, Text, View } from "react-native";
 import { useDimensions } from "@react-native-community/hooks";
 import ProgressBar from "react-native-progress/Bar";
 
@@ -14,8 +14,12 @@ const ProgressDisplay = ({
 }) => {
   const { width, height } = useDimensions().window;
 
+  console.log("At ProgressDisplay: ", percentComplete);
+
   return (
-    <View style={[styles.progressDisplayContainer, { width: width * 0.8 }]}>
+    <Animated.View
+      style={[styles.progressDisplayContainer, { width: width * 0.8 }]}
+    >
       <Text>
         {currentCount} of {goalTarget} {trackingType} completed
       </Text>
@@ -33,7 +37,7 @@ const ProgressDisplay = ({
       ) : (
         <Text>You met your goal!</Text>
       )}
-    </View>
+    </Animated.View>
   );
 };
 

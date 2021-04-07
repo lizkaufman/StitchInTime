@@ -47,7 +47,7 @@ const CounterGoalForm = ({ goalState, goalDispatch, hideGoalForm }) => {
             userInput &&
               goalDispatch({
                 type: actionTypes.CHANGE_GOAL_TARGET,
-                payload: userInput,
+                payload: Number(userInput),
               });
           }}
           defaultValue={goalState.goalTarget.toString()}
