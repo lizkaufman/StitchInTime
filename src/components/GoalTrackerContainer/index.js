@@ -11,8 +11,6 @@ import ProgressDisplay from "../ProgressDisplay";
 const GoalTrackerContainer = ({ goalState, showGoalForm, goalDispatch }) => {
   const { width, height } = useDimensions().window;
 
-  console.log("At GoalTrackerContainer: ", goalState);
-
   return (
     <SafeAreaView style={[styles.trackerContainer, { width: width * 0.8 }]}>
       <ProgressDisplay
