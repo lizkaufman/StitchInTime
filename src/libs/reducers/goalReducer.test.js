@@ -161,33 +161,109 @@ describe("Counter action types: ", () => {
     ];
     const expected = [
       { ...testStates[0], currentCount: 0 },
-      { ...testStates[1], currentCount: 2 },
+      { ...testStates[1], currentCount: 0 },
       { ...testStates[2], currentCount: 3 },
     ];
     const actual = testStates.map((state) =>
       goalReducer(state, { type: actionTypes.SUBTRACT_FROM_COUNTER })
     );
-    // const actual = [
-    //   goalReducer(testStates[0], { type: actionTypes.SUBTRACT_FROM_COUNTER }),
-    //   goalReducer(testStates[1], { type: actionTypes.SUBTRACT_FROM_COUNTER }),
-    //   goalReducer(testStates[2], { type: actionTypes.SUBTRACT_FROM_COUNTER }),
-    // ];
-    expect(actual).toMatch(expected);
-    //FIXME: Matcher error: received value must be a string
+    expect(actual).toEqual(expected);
   });
-  test.skip(`When ${actionTypes.SUBTRACT_FROM_COUNTER} is called and state.currentCount === 0, state.currentCount should remain 0`, () => {});
-  test.skip(`When ${actionTypes.RESET_CURRENT_COUNT} is called, state.currentCount should become 0`, () => {});
+  test(`When ${actionTypes.SUBTRACT_FROM_COUNTER} is called and state.currentCount === 0, state.currentCount should remain 0`, () => {
+    const expected = initialGoalState;
+    const actual = goalReducer(initialGoalState, {
+      type: actionTypes.SUBTRACT_FROM_COUNTER,
+    });
+    expect(actual).toEqual(expected);
+  });
+  test(`When ${actionTypes.RESET_CURRENT_COUNT} is called, state.currentCount should become initial state's value, and all the other properties within state should remain unchanged`, () => {
+    const testStates = [
+      { ...initialGoalState, currentCount: 2 },
+      {
+        ...initialGoalState,
+        currentCount: 5,
+        counterIncrement: 2,
+        goalTarget: 10,
+      },
+    ];
+    const expected = [
+      initialGoalState,
+      { ...testStates[1], currentCount: initialGoalState.currentCount },
+    ];
+    const actual = testStates.map((state) =>
+      goalReducer(state, { type: actionTypes.RESET_CURRENT_COUNT })
+    );
+    expect(actual).toEqual(expected);
+  });
 });
 
 describe("Amount and percentage left action types: ", () => {
-  test.skip(``, () => {});
-  test.skip(``, () => {});
-  test.skip(``, () => {});
-  test.skip(``, () => {});
-  test.skip(``, () => {});
-  test.skip(``, () => {});
-  test.skip(``, () => {});
-  test.skip(``, () => {});
+  test(`When ${actionTypes.CALCULATE_HOW_MANY_LEFT} is called if state.goalTarget - state.currentCount <= 0, state.leftToDo should be 0`, () => {
+    const testStates = [
+      { ...initialGoalState, goalTarget: 10, currentCount: 10 },
+      { ...initialGoalState, goalTarget: 1, currentCount: 2 },
+      { ...initialGoalState, goalTarget: 10, currentCount: 15 },
+    ];
+    const expected = testStates.map((state) => {
+      return { ...state, leftToDo: 0 };
+    });
+    const actual = testStates.map((state) =>
+      goalReducer(state, { type: actionTypes.CALCULATE_HOW_MANY_LEFT })
+    );
+    expect(actual).toEqual(expected);
+  });
+  test(`When ${actionTypes.CALCULATE_HOW_MANY_LEFT} is called if state.goalTarget - state.goalTarget > 0, state.leftToDo should be the difference between state.goalTarget and state.goalTarget`, () => {
+    const testStates = [
+      { ...initialGoalState, goalTarget: 3, currentCount: 0 },
+      { ...initialGoalState, goalTarget: 5, currentCount: 2 },
+      { ...initialGoalState, goalTarget: 10, currentCount: 5 },
+    ];
+    const expected = testStates.map((state) => {
+      return { ...state, leftToDo: state.goalTarget - state.currentCount };
+    });
+    const actual = testStates.map((state) =>
+      goalReducer(state, { type: actionTypes.CALCULATE_HOW_MANY_LEFT })
+    );
+    expect(actual).toEqual(expected);
+  });
+  test(`When ${actionTypes.CALCULATE_PERCENT_COMPLETE} is called, state.percentComplete should become (state.currentCount / state.goalTarget) * 100 rounded the nearest whole number`, () => {
+    const testStates = [
+      { ...initialGoalState, goalTarget: 3, currentCount: 0 },
+      { ...initialGoalState, goalTarget: 3, currentCount: 3 },
+      { ...initialGoalState, goalTarget: 3, currentCount: 2 },
+      { ...initialGoalState, goalTarget: 10, currentCount: 5 },
+    ];
+    const expected = [
+      {
+        ...initialGoalState,
+        goalTarget: 3,
+        currentCount: 0,
+        percentComplete: 0,
+      },
+      {
+        ...initialGoalState,
+        goalTarget: 3,
+        currentCount: 3,
+        percentComplete: 100,
+      },
+      {
+        ...initialGoalState,
+        goalTarget: 3,
+        currentCount: 2,
+        percentComplete: 67,
+      },
+      {
+        ...initialGoalState,
+        goalTarget: 10,
+        currentCount: 5,
+        percentComplete: 50,
+      },
+    ];
+    const actual = testStates.map((state) =>
+      goalReducer(state, { type: actionTypes.CALCULATE_PERCENT_COMPLETE })
+    );
+    expect(actual).toEqual(expected);
+  });
 });
 
 describe("Reset action type: ", () => {
