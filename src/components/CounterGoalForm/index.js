@@ -5,7 +5,7 @@ import { useDimensions } from "@react-native-community/hooks";
 import InputField from "../InputField";
 import ButtonTextAndIcon from "../ButtonTextAndIcon";
 
-import { colors } from "../../libs/stylingVars";
+import { colors, textSizes } from "../../libs/stylingVars";
 import * as actionTypes from "../../libs/actionTypes";
 
 const CounterGoalForm = ({ goalState, goalDispatch, hideGoalForm }) => {
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
   },
   header: {
     fontWeight: "bold",
-    fontSize: 30,
+    fontSize: textSizes.headingText,
     margin: 15,
     textAlign: "center",
   },
@@ -87,13 +87,13 @@ const styles = StyleSheet.create({
     marginVertical: 18,
   },
   labelText: {
-    fontSize: 22,
+    fontSize: textSizes.basicText,
     marginBottom: 12,
     textAlign: "center",
     fontWeight: "bold",
   },
   goalText: {
-    fontSize: 20,
+    fontSize: textSizes.buttonText,
     marginBottom: 12,
     textAlign: "center",
   },

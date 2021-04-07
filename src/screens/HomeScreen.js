@@ -4,7 +4,7 @@ import { useDimensions } from "@react-native-community/hooks";
 
 import ButtonTextAndIcon from "../components/ButtonTextAndIcon";
 
-import { colors } from "../libs/stylingVars";
+import { colors, textSizes } from "../libs/stylingVars";
 
 function HomeScreen({ navigation }) {
   const { width, height } = useDimensions().window;
@@ -21,10 +21,10 @@ function HomeScreen({ navigation }) {
       />
       <View style={[styles.textContainer]}>
         <Text style={styles.header}>Stitch In Time</Text>
-        <Text style={[styles.subheader, { width: width * 0.8 }]}>
+        <Text style={[styles.subtext, { width: width * 0.8 }]}>
           Track rows and stitches with ease.
         </Text>
-        <Text style={[styles.subheader, { width: width * 0.8 }]}>
+        <Text style={[styles.subtext, { width: width * 0.8 }]}>
           Tap "Start tracking" to get started. Other features are coming soon!
         </Text>
       </View>
@@ -75,13 +75,13 @@ const styles = StyleSheet.create({
   },
   header: {
     fontWeight: "bold",
-    fontSize: 30,
+    fontSize: textSizes.headingText,
     margin: 15,
     textAlign: "center",
     marginBottom: 25,
   },
-  subheader: {
-    fontSize: 18,
+  subtext: {
+    fontSize: textSizes.copyText,
     marginBottom: 12,
     textAlign: "center",
   },

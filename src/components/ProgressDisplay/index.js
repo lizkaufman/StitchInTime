@@ -3,7 +3,7 @@ import { Animated, StyleSheet, Text, View } from "react-native";
 import { useDimensions } from "@react-native-community/hooks";
 import ProgressBar from "react-native-progress/Bar";
 
-import { colors } from "../../libs/stylingVars";
+import { colors, textSizes } from "../../libs/stylingVars";
 
 const ProgressDisplay = ({
   currentCount,
@@ -14,16 +14,11 @@ const ProgressDisplay = ({
 }) => {
   const { width, height } = useDimensions().window;
 
-  console.log("At ProgressDisplay: ", percentComplete);
-
   return (
     <Animated.View
       style={[styles.progressDisplayContainer, { width: width * 0.8 }]}
     >
-      <Text>
-        {currentCount} of {goalTarget} {trackingType} completed
-      </Text>
-      <Text>{percentComplete}%</Text>
+      <Text style={styles.percentText}>{percentComplete}%</Text>
       <ProgressBar
         progress={percentComplete / 100}
         color={percentComplete < 100 ? colors.purple : colors.gold}
@@ -32,11 +27,16 @@ const ProgressDisplay = ({
         width={width * 0.65}
         height={10}
       />
-      {leftToDo ? (
-        <Text>Just {leftToDo} more to go!</Text>
-      ) : (
-        <Text>You met your goal!</Text>
-      )}
+      <View style={styles.progressTextContainer}>
+        <Text style={styles.progressText}>
+          {currentCount} of {goalTarget} {trackingType}
+        </Text>
+        {leftToDo ? (
+          <Text style={styles.progressText}>Just {leftToDo} more to go!</Text>
+        ) : (
+          <Text style={styles.progressText}>You met your goal!</Text>
+        )}
+      </View>
     </Animated.View>
   );
 };
@@ -50,6 +50,19 @@ const styles = StyleSheet.create({
     paddingTop: 28,
     paddingBottom: 40,
     borderRadius: 10,
+    marginBottom: 20,
+  },
+  progressTextContainer: {
+    marginTop: 20,
+  },
+  progressText: {
+    fontSize: textSizes.copyText,
+    textAlign: "center",
+  },
+  percentText: {
+    fontSize: textSizes.basicText,
+    fontWeight: "bold",
+    marginBottom: 20,
   },
 });
 

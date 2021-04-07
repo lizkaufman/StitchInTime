@@ -3,7 +3,7 @@ import { StyleSheet, TouchableOpacity, Text } from "react-native";
 import { useDimensions } from "@react-native-community/hooks";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 
-import { colors } from "../../libs/stylingVars";
+import { colors, textSizes } from "../../libs/stylingVars";
 
 const ButtonTextAndIcon = ({
   title,
@@ -11,7 +11,7 @@ const ButtonTextAndIcon = ({
   iconName,
   backgroundColor = colors.teal,
   textColor = colors.white,
-  textSize = 20,
+  textSize = textSizes.buttonText,
   isDisabled = false,
   fixedWidth = false,
   fixedWidthProportion,

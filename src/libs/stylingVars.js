@@ -8,3 +8,10 @@ export const colors = {
   white: "#fff",
   black: "#000",
 };
+
+export const textSizes = {
+  basicText: 22,
+  buttonText: 20,
+  headingText: 30,
+  copyText: 18,
+};
