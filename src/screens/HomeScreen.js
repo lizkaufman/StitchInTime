@@ -12,11 +12,8 @@ function HomeScreen({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       <Image
-        source={{
-          uri: "https://via.placeholder.com/150",
-          width: width * 0.4,
-          height: width * 0.4,
-        }}
+        // source={require("../../assets/icon.png")}
+        source={require("./logo-circle.png")}
         style={styles.mainLogoImg}
       />
       <View style={[styles.textContainer]}>
@@ -67,7 +64,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  mainLogoImg: { borderRadius: 10 },
+  mainLogoImg: { width: 200, height: 200 },
   textContainer: {
     alignItems: "center",
     justifyContent: "center",
