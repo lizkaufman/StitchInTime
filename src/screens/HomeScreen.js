@@ -13,7 +13,7 @@ function HomeScreen({ navigation }) {
     <SafeAreaView style={styles.container}>
       <Image
         // source={require("../../assets/icon.png")}
-        source={require("./logo-circle.png")}
+        source={require("../../assets/logo-circle.png")}
         style={styles.mainLogoImg}
       />
       <View style={[styles.textContainer]}>
