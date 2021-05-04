@@ -25,7 +25,7 @@ If you'd like to change your goal, the "Change your goal" button takes you to th
 ## Packages used
 
 - Progress bar: [react-native-progress](https://www.npmjs.com/package/react-native-progress)
-- Icons: [react-native-fontawesome]](https://www.npmjs.com/package/@fortawesome/react-native-fontawesome)
+- Icons: [react-native-fontawesome](https://www.npmjs.com/package/@fortawesome/react-native-fontawesome)
 
 ## Development trajectory
 
