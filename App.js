@@ -51,7 +51,7 @@ export default function App() {
         <Stack.Screen
           name="Counter"
           component={CounterScreen}
-          options={{ title: "Counter" }}
+          options={{ title: "Tracker" }}
         />
       </Stack.Navigator>
     </NavigationContainer>
