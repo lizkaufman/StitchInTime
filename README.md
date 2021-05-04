@@ -1,6 +1,6 @@
 # Stitch In Time
 
-Stitch In Time (WIP name) is an app designed to take the effort out of counting stitches when crocheting or knitting. Easily track your progress toward your totals for each step of your pattern with just a tap, customise how you track, and adjust your goal on midway through. Banish the annoying pencil and tally marks forever! 🧶🔢🧣🤩
+Stitch In Time (WIP name) is an app designed to take the effort out of counting stitches when crocheting or knitting. Easily track your progress toward your totals for each step of your pattern with just a tap, customise how you track, and adjust your goal midway through if you need to. Banish the annoying pencil and tally marks forever! 🧶🔢🧣🤩
 
 I've built the app's front end in React Native using the Expo client. I have a C# ASP.NET Core back end in development.
 
