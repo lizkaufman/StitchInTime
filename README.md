@@ -18,7 +18,7 @@ In its current version, the "Start tracking!" option on the home screen is the o
 
 Once you choose "Start tracking", set your type to track (rows or stitches) and your target on the next screen, and then hit "Get stitching!" to get started.
 
-On the tracking screen, use the + or - to either add the custom increment, 1, to your goal, or adjust the increment in the input field to add more at one time. Use the eraser button to restart your progress (the app will check if you're sure in case of accidental tapping!). The details at the top of the screen give you your progress as a glance.
+On the tracking screen, use the + or - to either add the initial increment, 1, to your goal, or adjust the increment in the input field to add more at one time. Use the eraser button to restart your progress (the app will check if you're sure in case of accidental tapping!). The details at the top of the screen give you your progress as a glance.
 
 If you'd like to change your goal, the "Change your goal" button takes you to the goal form again, but it retains your progress. For example, if you had 2/10 rows done and changed your goal to 15, hitting "Get stitching again" would set your progress to 2/15.
 
