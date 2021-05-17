@@ -25,6 +25,7 @@ const ButtonTextAndIcon = ({
         !isDisabled
           ? { backgroundColor: backgroundColor }
           : { backgroundColor: colors.lightGrey },
+        //FIXME: Remove fixedWith boolean! Just code it so that if fixedWidthProportion is there, respond to it. (Remember to allow for someone putting in 0! It'll still read it as true.)
         fixedWidth && { width: width * fixedWidthProportion },
         // If fixedWith is true, set the width of the button to the width of the device * fixedWidthProportion (ex: 80% of width if fixedWidthProportion===0.8).
       ]}
